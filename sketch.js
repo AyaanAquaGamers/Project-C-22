@@ -1,4 +1,4 @@
-var packageBody,ground
+var packageBody,ground,helicopterBody
 var helicopterIMG, helicopterSprite, packageSprite,packageIMG;
 var line2,line2a
 var line1,line1a
@@ -44,6 +44,9 @@ function setup() {
 	helicopterSprite=createSprite(width/2, 250, 10,10);
 	helicopterSprite.addImage(helicopterIMG)
 	helicopterSprite.scale=0.6
+	
+	helicopter=BodyBodies.circle(width/2 , 250 , 5 , {restitution:0.7, isStatic:true});
+	World.add(world, helicopterBody);
 
 	groundSprite=createSprite(width/2, height-35, width,10);
 	groundSprite.shapeColor=color(255)
@@ -71,7 +74,9 @@ function draw() {
   packageSprite.x=packageBody.position.x
   packageSprite.y=packageBody.position.y 
   packageBody.x=helicopterSprite.x
-  packageBody.y=helicopterSprite.y
+  packageBody.y=helicopterSprite.y                                                
+  helicopterSprite.x=helicopterBody.position.x
+  helicopterSprite.y=helicopterBody.position.y 
   rect(line1.position.x,line1.position.y,20,100)
   rect(line2.position.x,line2.position.y,200,20)
   rect(line3.position.x,line3.position.y,20,100)
@@ -83,9 +88,9 @@ function keyPressed() {
 Matter.Body.setStatic(packageBody,false)
   }
  if (keyCode===LEFT_ARROW ) {
-helicopterSprite.x=helicopterSprite.x-5
+helicopterBody.position.x=helicopterBody.position.x-5
   }
  if (keyCode===RIGHT_ARROW ) {
-helicopterSprite.x=helicopterSprite.x+5
+helicopterBody.position.x=helicopterBody.position.x+5
   }
 }
