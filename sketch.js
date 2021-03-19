@@ -22,6 +22,7 @@ function setup() {
 
 	packageBody = Bodies.circle(width/2 , 250 , 5 , {restitution:0.7, isStatic:true});
 	World.add(world, packageBody);
+	packageBody.position.x=20
 
 	packageSprite=createSprite(width/2,250, 10,10);
 	packageSprite.addImage(packageIMG)
@@ -47,6 +48,7 @@ function setup() {
 	
 	helicopterBody=Bodies.circle(width/2 , 250 , 5 , {restitution:0.7, isStatic:true});
 	World.add(world, helicopterBody);
+	helicopterBody.position.x=20
 
 	groundSprite=createSprite(width/2, height-35, width,10);
 	groundSprite.shapeColor=color(255)
@@ -89,8 +91,10 @@ Matter.Body.setStatic(packageBody,false)
   }
  if (keyCode===LEFT_ARROW ) {
 helicopterBody.position.x=helicopterBody.position.x-5
+packageBody.position.x=packageBody.position.x-5
   }
  if (keyCode===RIGHT_ARROW ) {
 helicopterBody.position.x=helicopterBody.position.x+5
+packageBody.position.x=packageBody.position.x+5
   }
 }
