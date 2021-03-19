@@ -45,7 +45,7 @@ function setup() {
 	helicopterSprite.addImage(helicopterIMG)
 	helicopterSprite.scale=0.6
 	
-	helicopter=BodyBodies.circle(width/2 , 250 , 5 , {restitution:0.7, isStatic:true});
+	helicopterBody=Bodies.circle(width/2 , 250 , 5 , {restitution:0.7, isStatic:true});
 	World.add(world, helicopterBody);
 
 	groundSprite=createSprite(width/2, height-35, width,10);
