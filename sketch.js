@@ -73,8 +73,8 @@ function draw() {
   background(0);
   packageSprite.x=packageBody.position.x
   packageSprite.y=packageBody.position.y 
-  packageBody.position.x=helicopterSprite.x
-  packageBody.position.y=helicopterSprite.y                                                
+  packageBody.position.x=helicopterBody.position.x
+  packageBody.position.y=helicopterBody.position.y                                                
   helicopterSprite.x=helicopterBody.position.x
   helicopterSprite.y=helicopterBody.position.y 
   rect(line1.position.x,line1.position.y,20,100)
