@@ -70,8 +70,8 @@ function draw() {
   background(0);
   packageSprite.x=packageBody.position.x
   packageSprite.y=packageBody.position.y 
-  packageBody.x=helicopterSprite.position.x
-  packageBody.y=helicopterSprite.position.y
+  packageBody.x=helicopterSprite.x
+  packageBody.y=helicopterSprite.y
   rect(line1.position.x,line1.position.y,20,100)
   rect(line2.position.x,line2.position.y,200,20)
   rect(line3.position.x,line3.position.y,20,100)
