@@ -1,4 +1,4 @@
-var packageBody,ground,helicopterBody
+var packageBody,ground
 var helicopterIMG, helicopterSprite, packageSprite,packageIMG;
 var line2,line2a
 var line1,line1a
@@ -22,7 +22,6 @@ function setup() {
 
 	packageBody = Bodies.circle(width/2 , 250 , 5 , {restitution:0.7, isStatic:true});
 	World.add(world, packageBody);
-	packageBody.position.x=20
 
 	packageSprite=createSprite(width/2,250, 10,10);
 	packageSprite.addImage(packageIMG)
@@ -45,16 +44,12 @@ function setup() {
 	helicopterSprite=createSprite(width/2, 250, 10,10);
 	helicopterSprite.addImage(helicopterIMG)
 	helicopterSprite.scale=0.6
-	
-	helicopterBody=Bodies.circle(width/2 , 250 , 5 , {restitution:0.7, isStatic:true});
-	World.add(world, helicopterBody);
-	helicopterBody.position.x=20
 
 	groundSprite=createSprite(width/2, height-35, width,10);
 	groundSprite.shapeColor=color(255)
 	
 	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
- 	World.add(world, ground);
+ 	World.add(world, ground);	
   
 	 line2=Bodies.rectangle(400,650,200,20,{isStatic:true})
 
@@ -75,10 +70,6 @@ function draw() {
   background(0);
   packageSprite.x=packageBody.position.x
   packageSprite.y=packageBody.position.y 
-  packageBody.position.x=helicopterBody.position.x
-  packageBody.position.y=helicopterBody.position.y                                                
-  helicopterSprite.x=helicopterBody.position.x
-  helicopterSprite.y=helicopterBody.position.y 
   rect(line1.position.x,line1.position.y,20,100)
   rect(line2.position.x,line2.position.y,200,20)
   rect(line3.position.x,line3.position.y,20,100)
@@ -89,12 +80,12 @@ function keyPressed() {
  if (keyCode===DOWN_ARROW ) {
 Matter.Body.setStatic(packageBody,false)
   }
- if (keyCode===LEFT_ARROW ) {
-helicopterBody.position.x=helicopterBody.position.x-5
-packageBody.position.x=packageBody.position.x-5
-  }
- if (keyCode===RIGHT_ARROW ) {
-helicopterBody.position.x=helicopterBody.position.x+5
-packageBody.position.x=packageBody.position.x+5
-  }
 }
+
+
+function keyPressed() {
+	if (keyCode===Left_ARROW ) {
+   helicopterSprite.X=helicopterSprite.X-10
+	 }
+   }
+
