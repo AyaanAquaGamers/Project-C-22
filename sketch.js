@@ -92,13 +92,14 @@ function draw() {
 }
 
 function keyPressed() {
- if (keyCode===DOWN_ARROW ) {
-    Matter.Body.setStatic(packageBody,false)
-  } else if (keyCode===LEFT_ARROW && helicopterBody.position.x>380) {
-	helicopterBody.position.x=helicopterBody.position.x-50
-    Matter.Body.translate(packageBody,{x:-50,y:0})
-  } else if (keyCode===RIGHT_ARROW && helicopterBody.position.x<380) {
-    helicopterBody.position.x=helicopterBody.position.x+50
-    Matter.Body.translate(packageBody,{x:+50,y:0})
-  }
+	if (keyCode === LEFT_ARROW) { 
+		helicopterBody.position.x=helicopterBody.position.x-20; translation={x:-20,y:0} 
+		Matter.Body.translate(packageBody, translation)
+	 } 
+	else if (keyCode === RIGHT_ARROW) {
+		 helicopterBody.position.x=helicopterBody.position.x+20; translation={x:20,y:0} 
+	Matter.Body.translate(packageBody, translation) 
+}	
+     else if (keyCode === DOWN_ARROW) {
+		  Matter.Body.setStatic(packageBody,false); } 
 }
